@@ -9,11 +9,12 @@ import { StoreComponent } from "./store/store.component";
 import { CartDetailComponent } from "./store/cart-detail.component";
 import { CheckoutComponent } from "./store/checkout.component";
 import { StoreFirstGuard } from "./storeFirst.guard";
+import { AdminModule } from "./admin/admin.module";
 
 
 @NgModule({
   declarations: [
-    AppComponent    
+    AppComponent   
   ],
   imports: [
     BrowserModule,
@@ -22,6 +23,7 @@ import { StoreFirstGuard } from "./storeFirst.guard";
       {path: "store", component: StoreComponent, canActivate: [StoreFirstGuard]},
       {path: "cart", component: CartDetailComponent, canActivate: [StoreFirstGuard]},
       {path: "checkout", component: CheckoutComponent, canActivate: [StoreFirstGuard]},
+      {path: "admin", loadChildren: "app/admin/admin.module#AdminModule", canActivate: [StoreFirstGuard]},
       {path: "**", redirectTo: "/store"}
     ])
   ],

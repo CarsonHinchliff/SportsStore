@@ -16,7 +16,7 @@ module.exports = function(req, res, next){
         console.log(res);
         return;
     }else if((req.url.startsWith("/products") && req.method != "GET")
-    || (req.url.startsWith("/orders") && req.method != "POST")){
+    || (req.url.startsWith("/orders") && req.method != "GET")){
         if(token != null && token.startsWith("Bearer<")){
             token = token.subString(7, token.length -1);
             try{
