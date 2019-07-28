@@ -17,8 +17,8 @@ export class OrderTableComponent implements OnInit {
     .filter(o => this.includeShippe || !o.shipped);
   }
 
-  markShipped(order: Order){
-    order.shipped = true;
+  toggleShip(order: Order){
+    order.shipped = !order.shipped;
     this.repository.updateOrder(order);
   }
 

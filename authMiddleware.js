@@ -13,18 +13,21 @@ module.exports = function(req, res, next){
             res.json({success: false});
         }
         res.end();
-        console.log(res);
+        //console.log(res);
         return;
-    }else if((req.url.startsWith("/products") && req.method != "GET")
-    || (req.url.startsWith("/orders") && req.method != "GET")){
+    }else if ((req.url.startsWith("/products") && req.method != "GET")
+                || (req.url.startsWith("/orders") && req.method != "POST")) {
+        let token = req.headers["authorization"];
+        console.log("token:", token);
         if(token != null && token.startsWith("Bearer<")){
-            token = token.subString(7, token.length -1);
+            token = token.substring(7, token.length -1);
             try{
+                console.log("start to verify...");
                 jwt.verify(token, APP_SECRET);
                 next();
                 return;
             }catch(err){
-                console.log(err);
+                console.error("error:", err);
             }
         }
         res.statusCode = 401;
