@@ -1,4 +1,12 @@
-
-<div class="bg-success p-a-1 text-xs-center">
+<!--<div class="bg-success p-a-1 text-xs-center">
     This is SportsStore
+</div>-->
+<!--demo for paModel directive-->
+<div class="form-group bg-info p-a-1">
+    <label>Name:</label>
+    <input class="bg-primary" [(paModel)]="newProduct.name" #paModel="paModel">
+    <div class="bg-primary">Direction: {{paModel.direction}}</div>
+    <button class="btn btn-warning" (click)="changeModel('a', true)">Add</button>
+    <button class="btn btn-warning" (click)="changeModel()">Sub</button>
+    <label>Name is: {{newProduct.name}}</label>
 </div>

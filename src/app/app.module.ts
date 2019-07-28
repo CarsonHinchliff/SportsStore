@@ -10,11 +10,19 @@ import { CartDetailComponent } from "./store/cart-detail.component";
 import { CheckoutComponent } from "./store/checkout.component";
 import { StoreFirstGuard } from "./storeFirst.guard";
 import { AdminModule } from "./admin/admin.module";
+import { PaModel } from "./directives/twoway.directive";
+import { PaAttrDirective } from "./directives/attr.directive";
+import { PaStructureDirective } from "./directives/structure.directive";
+import { PaIteratorDirective } from "./directives/iterator.directive";
 
 
 @NgModule({
   declarations: [
-    AppComponent   
+    AppComponent,
+    PaModel, 
+    PaAttrDirective,
+    PaStructureDirective,
+    PaIteratorDirective
   ],
   imports: [
     BrowserModule,
